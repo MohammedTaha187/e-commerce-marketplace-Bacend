@@ -6,6 +6,9 @@ use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\ProductVariantController;
 use App\Http\Controllers\Api\V1\RefundController;
+use App\Http\Controllers\Api\V1\ReviewController;
+use App\Http\Controllers\Api\V1\SupportMessageController;
+use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +29,9 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware('auth:api')->group(function () {
         // Auth
-        
+
         Route::post('logout', [AuthController::class, 'logout']);
-        Route::post('update-profile', [AuthController::class, 'updateProfile']);
+        Route::post('update-profile', [UserController::class, 'updateProfile']);
 
         // Product
         Route::get('products', [ProductController::class, 'index']);
@@ -49,9 +52,25 @@ Route::prefix('v1')->group(function () {
         // Refund
         Route::get('refunds', [RefundController::class, 'index']);
         Route::get('refunds/{refund}', [RefundController::class, 'show']);
+
+        // Review
+        Route::get('reviews', [ReviewController::class, 'index']);
+        Route::get('reviews/{review}', [ReviewController::class, 'show']);
+
+        // SupportMessage
+        Route::get('support-messages', [SupportMessageController::class, 'index']);
+        Route::get('support-messages/{supportMessage}', [SupportMessageController::class, 'show']);
     });
 
     Route::middleware(['auth:api', 'role:admin|seller'])->group(function () {
+
+        // User
+        Route::get('users', [UserController::class, 'index']);
+        Route::get('users/{user}', [UserController::class, 'show']);
+        Route::put('users/{user}/block', [UserController::class, 'block']);
+        Route::put('users/{user}/unblock', [UserController::class, 'unblock']);
+        Route::delete('users/{user}', [UserController::class, 'destroy']);
+
         // Product
         Route::post('products', [ProductController::class, 'store']);
         Route::put('products/{product}', [ProductController::class, 'update']);
@@ -76,5 +95,15 @@ Route::prefix('v1')->group(function () {
         Route::post('refunds', [RefundController::class, 'store']);
         Route::put('refunds/{refund}', [RefundController::class, 'update']);
         Route::delete('refunds/{refund}', [RefundController::class, 'destroy']);
+
+        // Review
+        Route::post('reviews', [ReviewController::class, 'store']);
+        Route::put('reviews/{review}', [ReviewController::class, 'update']);
+        Route::delete('reviews/{review}', [ReviewController::class, 'destroy']);
+
+        // SupportMessage
+        Route::post('support-messages', [SupportMessageController::class, 'store']);
+        Route::put('support-messages/{supportMessage}', [SupportMessageController::class, 'update']);
+        Route::delete('support-messages/{supportMessage}', [SupportMessageController::class, 'destroy']);
     });
 });

@@ -90,6 +90,26 @@
 | `PUT` | `/refunds/{id}` | Update refund status | **Admin, Seller** |
 | `DELETE` | `/refunds/{id}` | Delete a refund | **Admin, Seller** |
 
+### ⭐ Reviews
+
+| Method | Endpoint | Description | Access |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/reviews` | List all reviews | Authenticated |
+| `GET` | `/reviews/{id}` | View specific review | Authenticated |
+| `POST` | `/reviews` | Create a review | **Admin, Seller** |
+| `PUT` | `/reviews/{id}` | Update a review | **Admin, Seller** |
+| `DELETE` | `/reviews/{id}` | Delete a review | **Admin, Seller** |
+
+### 🚫 User Management
+
+| Method | Endpoint | Description | Access |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/users` | List all users | **Admin, Seller** |
+| `GET` | `/users/{id}` | View specific user | **Admin, Seller** |
+| `DELETE` | `/users/{id}` | Delete a user | **Admin, Seller** |
+| `PUT` | `/users/{id}/block` | Block a user | **Admin, Seller** |
+| `PUT` | `/users/{id}/unblock` | Unblock a user | **Admin, Seller** |
+
 ---
 
 ## 🧪 Testing with Postman
