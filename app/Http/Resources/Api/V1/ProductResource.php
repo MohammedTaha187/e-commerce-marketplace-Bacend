@@ -16,13 +16,13 @@ class ProductResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title, 
-            'slug' => $this->slug, 
-            'description' => $this->description, 
+            'title' => $this->title,
+            'slug' => $this->slug,
+            'description' => $this->description,
             'price' => $this->price,
             'discount_price' => $this->discount_price,
             'stock' => $this->stock,
-            'image' => $this->image ? url('storage/' . $this->image) : null,
+            'image' => $this->image ? url('storage/'.$this->image) : null,
             'rating' => $this->rating,
             'reviews_count' => $this->reviews_count,
             'is_featured' => (bool) $this->is_featured,

@@ -26,14 +26,14 @@ class UpdateProfileRequest extends FormRequest
 
         $rules = [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'phone' => 'nullable|string|max:255|unique:users,phone,' . $user->id,
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+            'phone' => 'nullable|string|max:255|unique:users,phone,'.$user->id,
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'password' => 'nullable|string|min:8|confirmed',
         ];
 
         // If password is being changed and user is not social, require old_password
-        if ($this->filled('password') && !$user->google_id) {
+        if ($this->filled('password') && ! $user->google_id) {
             $rules['old_password'] = 'required|string';
         }
 

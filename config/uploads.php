@@ -8,4 +8,6 @@ return [
     'seller_profiles' => 'seller_profiles',
     'reviews' => 'reviews',
     'payouts' => 'payouts',
+    'product_variants' => 'product_variants',
+    'refunds' => 'refunds',
 ];

@@ -11,7 +11,7 @@ class Product extends Model
     /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory, Translatable;
 
-    protected $guarded = ['id' , 'created_at' , 'updated_at'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $translatable = ['title', 'slug', 'description'];
 

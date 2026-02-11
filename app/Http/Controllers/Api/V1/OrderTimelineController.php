@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Api\V1;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\OrderTimeline\StoreOrderTimelineRequest;
 use App\Http\Requests\Api\V1\OrderTimeline\UpdateOrderTimelineRequest;
 use App\Models\OrderTimeline;

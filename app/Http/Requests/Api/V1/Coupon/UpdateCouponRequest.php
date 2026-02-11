@@ -22,7 +22,7 @@ class UpdateCouponRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code' => 'sometimes|string|max:50|unique:coupons,code,' . $this->route('coupon'),
+            'code' => 'sometimes|string|max:50|unique:coupons,code,'.$this->route('coupon'),
             'type' => 'sometimes|in:fixed,percentage',
             'value' => 'sometimes|numeric|min:0',
             'min_order_amount' => 'nullable|numeric|min:0',

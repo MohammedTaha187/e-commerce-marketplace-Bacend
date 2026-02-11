@@ -17,7 +17,7 @@ class BrandResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'logo' => $this->logo ? url('storage/' . $this->logo) : null,
+            'logo' => $this->logo ? url('storage/'.$this->logo) : null,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

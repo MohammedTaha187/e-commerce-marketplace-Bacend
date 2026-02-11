@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Refund;
+namespace App\Http\Requests\Api\V1\Brand;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRefundRequest extends FormRequest
+class UpdateBrandRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,8 @@ class UpdateRefundRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'status' => 'required|in:pending,approved,rejected',
+            'name' => ['sometimes', 'string', 'max:255', 'unique:brands,name,'.$this->route('brand')],
+            'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ];
     }
 }

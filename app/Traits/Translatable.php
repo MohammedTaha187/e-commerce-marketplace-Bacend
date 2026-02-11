@@ -20,13 +20,13 @@ trait Translatable
      */
     protected function getTranslationModelName(): string
     {
-        return get_class($this) . 'Translation';
+        return get_class($this).'Translation';
     }
 
     /**
      * Get the translation for a specific locale.
      */
-    public function getTranslation(string $locale = null)
+    public function getTranslation(?string $locale = null)
     {
         $locale = $locale ?? App::getLocale();
 

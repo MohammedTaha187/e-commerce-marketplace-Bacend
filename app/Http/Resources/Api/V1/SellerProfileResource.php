@@ -16,10 +16,10 @@ class SellerProfileResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'store_name' => $this->store_name, 
-            'store_description' => $this->store_description, 
-            'logo' => $this->logo ? url('storage/' . $this->logo) : null,
-            'banner' => $this->banner ? url('storage/' . $this->banner) : null,
+            'store_name' => $this->store_name,
+            'store_description' => $this->store_description,
+            'logo' => $this->logo ? url('storage/'.$this->logo) : null,
+            'banner' => $this->banner ? url('storage/'.$this->banner) : null,
             'facebook' => $this->facebook,
             'twitter' => $this->twitter,
             'instagram' => $this->instagram,

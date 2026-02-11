@@ -18,7 +18,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'avatar' => $this->avatar ? url('storage/' . $this->avatar) : null,
+            'avatar' => $this->avatar ? url('storage/'.$this->avatar) : null,
             'role' => $this->role,
             'seller_profile' => new SellerProfileResource($this->whenLoaded('sellerProfile')),
             'addresses' => AddressResource::collection($this->whenLoaded('addresses')),

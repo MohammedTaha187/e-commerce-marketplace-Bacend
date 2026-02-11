@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('order_timelines', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained()->cascadeOnDelete();
-            $table->enum('status', ['processing' , 'shipped' , 'out_for_delivery' , 'delivered' , 'cancelled' ])->default('processing');
+            $table->enum('status', ['processing', 'shipped', 'out_for_delivery', 'delivered', 'cancelled'])->default('processing');
             $table->text('message')->nullable();
             $table->timestamp('event_date')->nullable();
             $table->timestamps();

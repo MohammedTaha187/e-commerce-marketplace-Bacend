@@ -11,7 +11,7 @@ class UpdateProductVariantRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateProductVariantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sku' => 'sometimes|string|max:100|unique:product_variants,sku,' . $this->route('variant'),
+            'sku' => 'sometimes|string|max:100|unique:product_variants,sku,'.$this->route('variant'),
             'name' => 'nullable|string|max:255',
             'price' => 'sometimes|numeric|min:0',
             'stock' => 'sometimes|integer|min:0',

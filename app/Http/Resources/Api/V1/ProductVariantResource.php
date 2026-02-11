@@ -18,11 +18,11 @@ class ProductVariantResource extends JsonResource
             'id' => $this->id,
             'product_id' => $this->product_id,
             'sku' => $this->sku,
-            'name' => $this->name, 
+            'name' => $this->name,
             'price' => $this->price,
             'stock' => $this->stock,
             'attributes' => $this->attributes, // JSON column usually
-            'image' => $this->image ? url('storage/' . $this->image) : null,
+            'image' => $this->image ? url('storage/'.$this->image) : null,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

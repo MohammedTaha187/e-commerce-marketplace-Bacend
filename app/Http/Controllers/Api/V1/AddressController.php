@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-
 use App\Http\Requests\Api\V1\Address\StoreAddressRequest;
 use App\Http\Requests\Api\V1\Address\UpdateAddressRequest;
 use App\Models\Address;

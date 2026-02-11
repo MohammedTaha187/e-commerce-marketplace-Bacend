@@ -14,6 +14,7 @@ class SellerProfile extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $translatable = ['store_name', 'store_description'];
+
     public function user()
     {
         return $this->belongsTo(User::class);

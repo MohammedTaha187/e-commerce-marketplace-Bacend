@@ -17,7 +17,12 @@ class RefundFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'order_item_id' => \App\Models\OrderItem::factory(),
+            'user_id' => \App\Models\User::factory(),
+            'amount' => fake()->randomFloat(2, 10, 500),
+            'reason' => fake()->sentence(),
+            'status' => 'pending',
+            'images' => null,
         ];
     }
 }

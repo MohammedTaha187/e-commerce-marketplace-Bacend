@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Product;
-
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\V1\ProductResource;
 use App\Http\Requests\Api\V1\Product\StoreProductRequest;
 use App\Http\Requests\Api\V1\Product\UpdateProductRequest;
-
+use App\Http\Resources\Api\V1\ProductResource;
+use App\Models\Product;
+use App\Services\Api\V1\FileUploadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Services\Api\V1\FileUploadService;
 
 class ProductController extends Controller
 {
@@ -23,20 +21,19 @@ class ProductController extends Controller
     public function index()
     {
         $prods = Product::orderBy('id', 'desc')->paginate(10);
+
         return response()->json([
             'success' => true,
-            'message' => 'Products fetched successfully',
+            'message' => __('lang.Products fetched successfully'),
             'data' => ProductResource::collection($prods),
             'meta' => [
                 'current_page' => $prods->currentPage(),
                 'last_page' => $prods->lastPage(),
                 'per_page' => $prods->perPage(),
                 'total' => $prods->total(),
-            ]
+            ],
         ]);
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -52,8 +49,8 @@ class ProductController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'Product created successfully',
-                'data' => new ProductResource($product)
+                'message' => __('lang.Product created successfully'),
+                'data' => new ProductResource($product),
             ]);
         });
     }
@@ -65,12 +62,10 @@ class ProductController extends Controller
     {
         return response()->json([
             'success' => true,
-            'message' => 'Product fetched successfully',
-            'data' => new ProductResource($product)
+            'message' => __('lang.Product fetched successfully'),
+            'data' => new ProductResource($product),
         ]);
     }
-
-
 
     /**
      * Update the specified resource in storage.
@@ -86,8 +81,8 @@ class ProductController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'Product updated successfully',
-                'data' => new ProductResource($product)
+                'message' => __('lang.Product updated successfully'),
+                'data' => new ProductResource($product),
             ]);
         });
     }
@@ -105,7 +100,7 @@ class ProductController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Product deleted successfully'
+            'message' => __('lang.Product deleted successfully'),
         ]);
     }
 

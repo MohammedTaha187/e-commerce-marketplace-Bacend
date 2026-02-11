@@ -1,7 +1,7 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-$app = require __DIR__ . '/bootstrap/app.php';
+require __DIR__.'/vendor/autoload.php';
+$app = require __DIR__.'/bootstrap/app.php';
 $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
 use App\Models\Brand;
@@ -42,15 +42,15 @@ $category->load('translations');
 
 // Set locale to 'en' and check
 App::setLocale('en');
-echo "EN Name: " . $category->name . " (Expected: Electronics)\n";
+echo 'EN Name: '.$category->name." (Expected: Electronics)\n";
 
 // Set locale to 'ar' and check
 App::setLocale('ar');
-echo "AR Name: " . $category->name . " (Expected: إلكترونيات)\n";
+echo 'AR Name: '.$category->name." (Expected: إلكترونيات)\n";
 
 // Test fallback (assuming 'en' is fallback)
 App::setLocale('fr');
-echo "FR Name (Fallback): " . $category->name . " (Expected: Electronics)\n";
+echo 'FR Name (Fallback): '.$category->name." (Expected: Electronics)\n";
 
 echo "--------------------------------------------------\n";
 
@@ -82,10 +82,10 @@ $product->translations()->create([
 $product->load('translations');
 
 App::setLocale('en');
-echo "EN Title: " . $product->title . " (Expected: iPhone 15)\n";
+echo 'EN Title: '.$product->title." (Expected: iPhone 15)\n";
 
 App::setLocale('ar');
-echo "AR Title: " . $product->title . " (Expected: أيفون 15)\n";
+echo 'AR Title: '.$product->title." (Expected: أيفون 15)\n";
 
 echo "--------------------------------------------------\n";
 
@@ -114,9 +114,9 @@ $profile->translations()->create([
 $profile->load('translations');
 
 App::setLocale('en');
-echo "EN Store: " . $profile->store_name . " (Expected: Tech Store)\n";
+echo 'EN Store: '.$profile->store_name." (Expected: Tech Store)\n";
 
 App::setLocale('ar');
-echo "AR Store: " . $profile->store_name . " (Expected: متجر التقنية)\n";
+echo 'AR Store: '.$profile->store_name." (Expected: متجر التقنية)\n";
 
 echo "Done.\n";

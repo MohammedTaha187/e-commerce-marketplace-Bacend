@@ -20,7 +20,7 @@ class PayoutResource extends JsonResource
             'amount' => $this->amount,
             'status' => $this->status,
             'payment_method' => $this->payment_method,
-            'details' => $this->details, 
+            'details' => $this->details,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

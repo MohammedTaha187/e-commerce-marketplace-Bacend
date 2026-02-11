@@ -60,6 +60,36 @@
 | `PUT` | `/products/{id}` | Update a product | **Admin, Seller** |
 | `DELETE` | `/products/{id}` | Delete a product | **Admin, Seller** |
 
+### 🏷️ Brands
+
+| Method | Endpoint | Description | Access |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/brands` | List all brands | Authenticated |
+| `GET` | `/brands/{id}` | View specific brand | Authenticated |
+| `POST` | `/brands` | Create a new brand | **Admin, Seller** |
+| `PUT` | `/brands/{id}` | Update a brand | **Admin, Seller** |
+| `DELETE` | `/brands/{id}` | Delete a brand | **Admin, Seller** |
+
+### 📦 Product Variants
+
+| Method | Endpoint | Description | Access |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/products/{product_id}/variants` | List variants for a product | Authenticated |
+| `GET` | `/products/{product_id}/variants/{id}` | View specific variant | Authenticated |
+| `POST` | `/products/{product_id}/variants` | Create a variant | **Admin, Seller** |
+| `PUT` | `/products/{product_id}/variants/{id}` | Update a variant | **Admin, Seller** |
+| `DELETE` | `/products/{product_id}/variants/{id}` | Delete a variant | **Admin, Seller** |
+
+### 💸 Refunds
+
+| Method | Endpoint | Description | Access |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/refunds` | List all refunds | Authenticated |
+| `GET` | `/refunds/{id}` | View specific refund | Authenticated |
+| `POST` | `/refunds` | Create a refund request | **Admin, Seller** |
+| `PUT` | `/refunds/{id}` | Update refund status | **Admin, Seller** |
+| `DELETE` | `/refunds/{id}` | Delete a refund | **Admin, Seller** |
+
 ---
 
 ## 🧪 Testing with Postman

@@ -21,7 +21,7 @@ class RefundResource extends JsonResource
             'amount' => $this->amount,
             'reason' => $this->reason,
             'status' => $this->status,
-            'images' => $this->images ? array_map(fn($img) => url('storage/' . $img), $this->images) : [],
+            'images' => $this->images ? array_map(fn ($img) => url('storage/'.$img), $this->images) : [],
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

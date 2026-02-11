@@ -20,7 +20,7 @@ class ReviewResource extends JsonResource
             'product_id' => $this->product_id,
             'rating' => $this->rating,
             'comment' => $this->comment,
-            'images' => $this->images ? array_map(fn($img) => url('storage/' . $img), $this->images) : [], // Assuming JSON array
+            'images' => $this->images ? array_map(fn ($img) => url('storage/'.$img), $this->images) : [], // Assuming JSON array
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

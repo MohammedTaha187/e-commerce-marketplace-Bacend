@@ -9,6 +9,6 @@ class NewsletterSubscription extends Model
 {
     /** @use HasFactory<\Database\Factories\NewsletterSubscriptionFactory> */
     use HasFactory;
-    protected $guarded = ['id' , 'created_at' , 'updated_at'];
 
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 }

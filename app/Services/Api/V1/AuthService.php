@@ -3,24 +3,21 @@
 namespace App\Services\Api\V1;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthService
 {
     /**
      * Register a new user.
-     *
-     * @param array $data
-     * @return array
      */
     public function registerUser(array $data): array
     {
         // Check if user exists and is blocked
         $existingUser = User::where('email', $data['email'])->first();
         if ($existingUser && $existingUser->is_blocked) {
-            throw new Exception('This email has been blocked. Please contact support. Reason: ' . ($existingUser->block_reason ?? 'not specified'), 403);
+            throw new Exception('This email has been blocked. Please contact support. Reason: '.($existingUser->block_reason ?? 'not specified'), 403);
         }
 
         $imagePath = $data['image']->store('user', 'public');
@@ -39,15 +36,12 @@ class AuthService
 
         return [
             'user' => $user,
-            'token' => $token
+            'token' => $token,
         ];
     }
 
     /**
      * Login a user.
-     *
-     * @param array $credentials
-     * @return array
      */
     public function loginUser(array $credentials): array
     {
@@ -60,28 +54,23 @@ class AuthService
 
         if ($user->is_blocked) {
             Auth::guard('api')->logout();
-            throw new Exception('Your account has been blocked. Please contact support. Reason: ' . ($user->block_reason ?? 'not specified'), 403);
+            throw new Exception('Your account has been blocked. Please contact support. Reason: '.($user->block_reason ?? 'not specified'), 403);
         }
 
         return [
             'user' => $user,
-            'token' => $token
+            'token' => $token,
         ];
     }
 
     /**
      * Update user profile.
-     *
-     * @param User $user
-     * @param array $data
-     * @return User
      */
     public function updateUser(User $user, array $data): User
     {
-       
 
-        if (isset($data['password']) && !$user->google_id) {
-            if (!Hash::check($data['old_password'], $user->password)) {
+        if (isset($data['password']) && ! $user->google_id) {
+            if (! Hash::check($data['old_password'], $user->password)) {
                 throw new Exception('Current password is incorrect', 422);
             }
             $user->password = Hash::make($data['password']);
@@ -105,8 +94,6 @@ class AuthService
 
     /**
      * Logout user.
-     *
-     * @return void
      */
     public function logoutUser(): void
     {
